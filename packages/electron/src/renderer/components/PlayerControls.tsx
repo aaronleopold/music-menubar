@@ -1,4 +1,5 @@
 import React from "react";
+import { TouchBarPlayerControls } from "./TouchBarPlayerControls";
 import {
   IKeyboardControlsProps,
   KeyboardControls,
@@ -27,10 +28,17 @@ export default function PlayerControls({
       onPlay();
     }
   }
+
   const keyboardMappings = getKeyboardMapping(toggle, onReplay, onSkip);
 
   return (
     <div>
+      <TouchBarPlayerControls
+        playing={playing}
+        toggle={toggle}
+        onReplay={onReplay}
+        onSkip={onSkip}
+      />
       <KeyboardControls {...keyboardMappings} />
       <div className="absolute inset-x-0 bottom-0  py-2 ">
         <div className="flex space-x-4 justify-center items-center pb-2 text-white text-shadow-lg">
