@@ -6,11 +6,15 @@ import { menubar, Menubar } from "menubar";
 import { autoUpdater } from "electron-updater";
 import open from "open";
 import { addContextmenu } from "./menu";
+import { manageTouchBars } from "./TouchBarManager";
 
 autoUpdater.checkForUpdatesAndNotify();
 
-let mb: Menubar;
+// we export the window so that when a song is changed and the application is not focussed it will not throw an error
+// trying to retrieve it via BrowserWindow.getFocusedWindow()
+export let mainWindow: Electron.BrowserWindow;
 
+let mb: Menubar;
 app.commandLine.appendSwitch("ignore-certificate-errors");
 
 app.on("ready", () => {
@@ -37,6 +41,12 @@ app.on("ready", () => {
   mb.on("after-create-window", () => {
     if (is.dev()) {
       mb.window?.webContents.openDevTools({ mode: "undocked" });
+    }
+
+    if (mb.window) {
+      mainWindow = mb.window;
+
+      manageTouchBars();
     }
 
     addContextmenu(mb);
