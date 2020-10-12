@@ -9,7 +9,7 @@ const fs = require("fs");
 const path = require("path");
 
 const parseAsAudio = async (files: any[]) => {
-  var audioData: any[] = [];
+  const audioData: any[] = [];
 
   for (const file of files) {
     const metadata: mm.IAudioMetadata = await mm.parseFile(file, {
@@ -47,15 +47,16 @@ const scanFiles = (filepath: string, filelist: any[]) => {
 };
 
 function Home() {
+  const [audioFiles, setAudioFiles] = useState<any[]>([]);
   const store = useMst();
 
   useEffect(() => {
     const { local } = store.player;
     const loadedFiles = scanFiles(local.path, []);
-    parseAsAudio(loadedFiles)
-      .then((r) => console.log(r))
-      .catch((e) => console.log(e));
-  });
+    parseAsAudio(loadedFiles).then((audioData) => {
+      setAudioFiles(audioData);
+    });
+  }, []);
 
   const dark = store.player.theme === "dark";
 
@@ -63,7 +64,7 @@ function Home() {
     <div className={clsx(dark && "bg-dark", "min-h-screen")}>
       <Header title="Library" dark={dark} />
       <p className={clsx(dark && "text-white", "text-center mt-6")}>
-        <Playlist />
+        <Playlist audio={audioFiles} />
       </p>
     </div>
   );
