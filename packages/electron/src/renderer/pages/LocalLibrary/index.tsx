@@ -9,7 +9,7 @@ const fs = require("fs");
 const path = require("path");
 
 const parseAsAudio = async (files: any[]) => {
-  var audioData: any[] = [];
+  const audioData: any[] = [];
 
   for (const file of files) {
     const metadata: mm.IAudioMetadata = await mm.parseFile(file, {
@@ -47,15 +47,26 @@ const scanFiles = (filepath: string, filelist: any[]) => {
 };
 
 function Home() {
+  const [audioFiles, setAudioFiles] = useState<any[]>([]);
+  const [isInvalidPath, setIsInvalidPath] = useState<boolean>(false);
   const store = useMst();
 
   useEffect(() => {
     const { local } = store.player;
-    const loadedFiles = scanFiles(local.path, []);
-    parseAsAudio(loadedFiles)
-      .then((r) => console.log(r))
-      .catch((e) => console.log(e));
-  });
+    if (local.path && local.path !== "") {
+      try {
+        const loadedFiles = scanFiles(local.path, []);
+        parseAsAudio(loadedFiles).then((audioData) => {
+          setAudioFiles(audioData);
+        });
+      } catch (e) {
+        console.error(e);
+        setIsInvalidPath(true);
+      }
+    } else {
+      setIsInvalidPath(true);
+    }
+  }, []);
 
   const dark = store.player.theme === "dark";
 
@@ -63,7 +74,11 @@ function Home() {
     <div className={clsx(dark && "bg-dark", "min-h-screen")}>
       <Header title="Library" dark={dark} />
       <p className={clsx(dark && "text-white", "text-center mt-6")}>
-        <Playlist />
+        {isInvalidPath ? (
+          "Your local library path is invalid. Please check your settings page."
+        ) : (
+          <Playlist audio={audioFiles} />
+        )}
       </p>
     </div>
   );
