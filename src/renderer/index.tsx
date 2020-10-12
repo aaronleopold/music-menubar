@@ -9,6 +9,7 @@ import ToastManager from "./components/ToastManager";
 import YouTube from "./pages/YouTube";
 import Spotify from "./pages/Spotify";
 import SoundCloud from "./pages/SoundCloud";
+import LocalLibrary from "./pages/LocalLibrary";
 
 require("dotenv").config();
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/spotify/*" element={<Spotify />} />
             <Route path="/soundcloud/*" element={<SoundCloud />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/library" element={<LocalLibrary />} />
           </Routes>
         </MemoryRouter>
       </ToastManager>

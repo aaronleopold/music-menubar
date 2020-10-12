@@ -11,7 +11,7 @@ import clsx from "clsx";
 export default observer(() => {
   const store = useMst();
 
-  const { spotify, youtube, theme } = store.player;
+  const { spotify, youtube, theme, local } = store.player;
 
   function toggleTheme() {
     if (!theme || theme === "light") {
@@ -87,6 +87,24 @@ export default observer(() => {
             placeholder="Enter your google API key here"
             value={youtube.googleApiKey}
             onChange={(e) => youtube.setApiKey(e.target.value)}
+          />
+        </div>
+        <div>
+          <label
+            className={clsx(
+              theme === "dark" ? "text-white" : "text-gray-700",
+              "block text-sm leading-5 font-medium "
+            )}
+          >
+            Local Library
+          </label>
+
+          <input
+            className="form-input w-full mt-1 rounded-md border border-gray-300 px-4 py-2 text-sm leading-5"
+            type="text"
+            placeholder="Enter your local library path here"
+            value={local.path}
+            onChange={(e) => local.setPath(e.target.value)}
           />
         </div>
       </div>
