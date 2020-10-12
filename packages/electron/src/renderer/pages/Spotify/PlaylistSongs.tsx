@@ -84,10 +84,12 @@ export default function PlaylistSongs({ playlists }: { playlists: any }) {
         {/* TODO: learn suspense and make this functional */}
         <React.Suspense fallback={<div>........LOADING</div>}>
           {songs &&
-            songs.map((song: any, index: number) => {
+            songs.map((song: any, _index: number) => {
               const { track } = song;
 
               const { album, artists, href, id, name, uri } = track;
+
+              console.log(href, uri);
 
               const artist = artists[0].name;
               return (

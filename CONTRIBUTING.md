@@ -9,9 +9,10 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 ## Pull Request Process
 
-1. Ensure any install or build dependencies are removed before the end of the layer when doing a
+1. Always pull down from main branch prior to writing any code each session
+2. Ensure any install or build dependencies are removed before the end of the layer when doing a
    build.
-2. Update the README.md with details of changes when necessary (e.g. changing prominent feature or creating new one).
+3. Update the README.md with details of changes when necessary (e.g. changing prominent feature or creating new one).
 
 ## Code of Conduct
 

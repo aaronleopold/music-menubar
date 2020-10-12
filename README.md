@@ -9,7 +9,7 @@
 tldr; a dropdown media controller for your youtube playlists / videos (and planned spotify + soundcloud controller too), written using React, Tailwind CSS and Electron
 
 <p align="center">
-  <img src="./src/renderer/assets/readme-demo.gif">
+  <img src="./packages/electron/src/renderer/assets/readme-demo.gif">
 </p>
 
 ### More deets
@@ -20,7 +20,9 @@ A quick note, I will be using the term 'stream' throughout this readme when refe
 
 ### Current state
 
-Currently this media player is only capable of managing existing youtube playlists and streams. I originally had a spotify controller partly working, but decided to focus on one feature at a time. So, until the youtube portion is closer to where I want it to be I'll be shelving the spotify controls.
+Currently this media player is only capable of managing existing YouTube playlists and streams. I originally had a spotify controller partly working, but decided to focus on one feature at a time. So, until the YouTube portion is closer to where I want it to be I'll be shelving the spotify controls.
+
+I noticed that electron menubar apps don't play nicely with tiling managers (like what I have on my linux machine) and so I have plans to add a TUI variant of this application sometime in the future, so that you can manage/play YouTube playlists through the terminal. YouTube is the only service I plan to add here currently, see [spotify-tui](https://github.com/Rigellute/spotify-tui) if you want an awesome terminal way of controlling Spotify. This will also be a large inspiration for the development of the YouTube TUI.
 
 ### Installation
 
@@ -29,36 +31,48 @@ Until a release has been made, you can follow the development startup procedure 
 ```bash
 git clone https://github.com/aaronleopold/music-menubar.git
 cd music-menubar
+
+yarn
+yarn install:all
 ```
 
-Then, configure a `.env` file using the provided `.env.example` file. Once this step is finished, you can install the dependencies and run the program:
+This will install all dependencies (for electron and tui clients). If you only want a specific client, see below.
+
+#### Electron Menubar Application
+
+Configure an `.env` file using the provided `.env.example` file. Once this step is finished, you can install the dependencies and run the program:
 
 ```bash
 yarn
-yarn dev
+yarn install:electron
+yarn dev:electron
+```
+
+#### TUI Application
+
+Currently, this is nonexistant. However, the install and startup scripts are written and likely won't change once this is started.
+
+```bash
+yarn
+yarn install:tui
+yarn dev:tui
 ```
 
 ### Usage
 
-Off the bat, this will come preloaded with three playlists and one stream. All of the preloaded items are Lofi, so if that's not your thing you can just delete them. To link new items, all that is required is pasting an appropriate link and assigning a name.
+Please refer to the corresponding README's for the package you wish to use
 
-In the event that the URL parsing fails, you'll need to grab the ID from the URL manually. For playlists, this is the value that comes immediately after `?list=`, and for videos / streams this is the value that comes immediately after `?v=`.
+#### Electron Menubar Application
 
-For example, let's say you wanted to add the following playlist:
+[`packages/electron/README.md`](packages/electron/README.md)
 
-`https://www.youtube.com/playlist?list=PLm5pKYShxnXB1g2LixFdKxjAvl3P2O4Hm`
+#### TUI Application
 
-The ID to extract here is: `PLm5pKYShxnXB1g2LixFdKxjAvl3P2O4Hm`
-
-Now, lets say you love this video:
-
-`https://www.youtube.com/watch?v=rCFmLjGq3Jg`
-
-The ID to extract here is `rCFmLjGq3Jg`.
+[`packages/tui/README.md`](packages/tui/README.md)
 
 ### Artwork
 
-I used a large amount (and still increasing) of gifs, and none of it is mine. Zip. All of the art you see is thanks to other people who have amazingly great talent, and the references to all gifs used can be found in `src/renderer/assets/gifs.ts`.You'll see an array of objects, and the source field is the source. Please take the time to check it out and give let the artist know if you happen across something you love!
+I used a large amount (and still increasing) of gifs in the electron application, and none of it is mine. Zip. All of the art you see is thanks to other people who have amazingly great talent, and the references to all gifs used can be found in `src/renderer/assets/gifs.ts`.You'll see an array of objects, and the source field is the source. Please take the time to check it out and give let the artist know if you happen across something you love!
 
 For example:
 

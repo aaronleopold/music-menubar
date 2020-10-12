@@ -8,12 +8,19 @@ function useMediaQuery(query: string, isIOS: boolean) {
 
     updateMatch();
     if (isIOS) {
+      // Note: addListener and removeListener are deprecated. I am intentionally using them
+      // only on iOS devices because I found that addEventListener and removeEventListener breaks
+      // on iOS platform. Hopefully, this gets resolved soon
       window.matchMedia(query).addListener(updateMatch);
+
+      // remove listener on unmount
       return () => {
-        window.matchMedia(query).addListener(updateMatch);
+        window.matchMedia(query).removeListener(updateMatch);
       };
     } else {
       window.matchMedia(query).addEventListener("change", updateMatch);
+
+      // remove listener on unmount
       return () => {
         window.matchMedia(query).removeEventListener("change", updateMatch);
       };
