@@ -56,4 +56,8 @@ export const gifs: Gif[] = [
     gif: streetsofrage,
     source: "https://giphy.com/gifs/streets-of-rage-CN9sOyaRT7YVG",
   },
+  {
+    gif: reflection,
+    source: "https://waneella.tumblr.com/image/132817775842",
+  ],
 ];
