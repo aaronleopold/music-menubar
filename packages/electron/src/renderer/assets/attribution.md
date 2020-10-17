@@ -15,8 +15,13 @@ Here is the running list of all the artwork used in this application:
 | ![flow demo](gifs/townatnight.gif)   | https://giphy.com/gifs/1yld7nW3oQ2IyRubUm                                                        | TBD                |
 | ![flow demo](gifs/waiting.gif)       | https://66.media.tumblr.com/43ff1ae84968ffd84606207e9995a78e/tumblr_py4mvbGe6h1tgo74ho1_1280.gif | TBD                |
 | ![flow demo](gifs/waneela.gif)       | https://giphy.com/gifs/cinemagraph-RkDZq0dhhYHhxdFrJB                                            | TBD                |
-| ![flow demo](gifs/reflection.gif)    | https://waneella.tumblr.com/image/132817775842	 					       | TBD		     |
-| ![flow demo](gifs/futuristicjp.gif)  | https://waneella.tumblr.com/image/178477909282						       | TBD		     |
-| ![flow demo](gifs/oasiscamp.gif)     | http://en.riotpixels.com/games/pathway/memes/1/						       | TBD		     |
-| ![flow demo](gifs/camp.gif)          | http://en.riotpixels.com/games/pathway/memes/8/						       | TBD		     |
-| ![flow demo](gifs/bridge)            | https://chigiris.tumblr.com/image/169038311660						       | TBD		     |
+| ![flow demo](gifs/reflection.gif)    | https://waneella.tumblr.com/image/132817775842	 					                                        | TBD       		     |
+| ![flow demo](gifs/futuristicjp.gif)  | https://waneella.tumblr.com/image/178477909282						                                        | TBD	        	     |
+| ![flow demo](gifs/oasiscamp.gif)     | http://en.riotpixels.com/games/pathway/memes/1/						                                      | TBD       		     |
+| ![flow demo](gifs/camp.gif)          | http://en.riotpixels.com/games/pathway/memes/8/						                                      | TBD		             |
+| ![flow demo](gifs/bridge.gif)        | https://chigiris.tumblr.com/image/169038311660						                                        | TBD       		     |
+| ![dawnstreet](gifs/dawnstreet.gif)         | https://giphy.com/gifs/memecandy-fqtxCwUd2t6dCzILMq                                                 | TBD                |
+| ![plant](gifs/plant.gif)                   | https://giphy.com/gifs/animatr-anime-aesthetic-rain-gif-451shsqh5nJ9UqDElR                          | TBD                |
+| ![rainyafternoon](gifs/rainyafternoon.gif) | https://giphy.com/gifs/lofi-lo-fi-blobfish-H62NM1ab7wzMXURdoi                                       | TBD                |
+| ![sunrise](gifs/sunrise.gif)               | https://giphy.com/gifs/verycleverrecords-themouseoutfit-oneonly-the-mouse-outfit-H1RnUp4XenL8PILcqN | TBD                |
+| ![sunroad](gifs/sunroad.gif)               | https://giphy.com/gifs/80s-synthwave-aesthetic-cOzK12kNVHoiOLYX6P                                   | TBD                |

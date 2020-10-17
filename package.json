@@ -13,11 +13,5 @@
     "start:electron": "cd packages/electron && yarn start &",
     "build:electron": "cd packages/electron && yarn build",
     "dev:tui": "cd packages/tui && yarn dev"
-  },
-  "dependencies": {
-    "howler": "^2.2.0"
-  },
-  "devDependencies": {
-    "@types/howler": "^2.2.1"
   }
 }

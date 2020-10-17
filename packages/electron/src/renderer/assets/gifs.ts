@@ -13,6 +13,11 @@ import futuristicjp from "./gifs/futuristicjp.gif";
 import oasiscamp from "./gifs/oasiscamp.gif";
 import camp from "./gifs/camp.gif";
 import bridge from "./gifs/bridge.gif";
+import dawnstreet from "./gifs/dawnstreet.gif";
+import plant from "./gifs/plant.gif";
+import rainyafternoon from "./gifs/rainyafternoon.gif";
+import sunrise from "./gifs/sunrise.gif";
+import sunroad from "./gifs/sunroad.gif";
 
 export type Gif = {
   gif: any;
@@ -80,5 +85,27 @@ export const gifs: Gif[] = [
   {
     gif: bridge,
     source: "https://chigiris.tumblr.com/image/169038311660"
+  },
+  {
+    gif: dawnstreet,
+    source: "https://giphy.com/gifs/memecandy-fqtxCwUd2t6dCzILMq",
+  },
+  {
+    gif: plant,
+    source:
+      "https://giphy.com/gifs/animatr-anime-aesthetic-rain-gif-451shsqh5nJ9UqDElR",
+  },
+  {
+    gif: rainyafternoon,
+    source: "https://giphy.com/gifs/lofi-lo-fi-blobfish-H62NM1ab7wzMXURdoi",
+  },
+  {
+    gif: sunrise,
+    source:
+      "https://giphy.com/gifs/verycleverrecords-themouseoutfit-oneonly-the-mouse-outfit-H1RnUp4XenL8PILcqN",
+  },
+  {
+    gif: sunroad,
+    source: "https://giphy.com/gifs/80s-synthwave-aesthetic-cOzK12kNVHoiOLYX6P",
   },
 ];

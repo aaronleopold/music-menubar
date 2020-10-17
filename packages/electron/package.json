@@ -20,6 +20,7 @@
     "focus-trap-react": "^8.0.0",
     "framer-motion": "^1.9.1",
     "history": "^5.0.0",
+    "howler": "^2.2.0",
     "lodash": "^4.17.20",
     "menubar": "^9.0.1",
     "mobx": "^5.15.6",
@@ -47,6 +48,7 @@
   "devDependencies": {
     "@babel/preset-react": "^7.10.4",
     "@tailwindcss/ui": "^0.3.0",
+    "@types/howler": "^2.2.1",
     "@types/no-scroll": "^2.1.0",
     "@types/node": "^14.0.27",
     "@types/react": "^16.9.38",

@@ -22,14 +22,13 @@ export default function LocalPlayer({ loaded }: Props) {
   return (
     <AnimatePresence>
       {open ? (
-        <FocusTrap>
+        <FocusTrap key="full-screen">
           <div className="z-30 absolute inset-x-0">
             <motion.div
               initial={{ y: 0 }}
-              animate={{ y: '-100%' }}
-              exit={{ y: 0 }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
-              role="dialog"
+              animate={{ translateY: '-100%' }}
+              exit={{ translateY: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
               className="relative bg-white overflow-hidden w-full"
             >
               <div className="full-minus-header p-4 pb-4 relative">
@@ -60,8 +59,10 @@ export default function LocalPlayer({ loaded }: Props) {
           </div>
         </FocusTrap>
       ) : (
-        // FIXME: this is snapping out, should slide out as it does when you trigger the above to open
-        <div className="fixed flex items-center justify-center bottom-0 h-12 bg-white w-full px-6">
+        <div
+          className="fixed flex items-center justify-center bottom-0 h-12 bg-white w-full px-6"
+          key="non-full"
+        >
           <div className="w-8"></div>
           <div className="flex-1 justify-center text-center">testing123</div>
           <div className="w-8 justify-center">
