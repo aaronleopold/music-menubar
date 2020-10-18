@@ -25,3 +25,8 @@ Here is the running list of all the artwork used in this application:
 | ![rainyafternoon](gifs/rainyafternoon.gif) | https://giphy.com/gifs/lofi-lo-fi-blobfish-H62NM1ab7wzMXURdoi                                       | TBD                |
 | ![sunrise](gifs/sunrise.gif)               | https://giphy.com/gifs/verycleverrecords-themouseoutfit-oneonly-the-mouse-outfit-H1RnUp4XenL8PILcqN | TBD                |
 | ![sunroad](gifs/sunroad.gif)               | https://giphy.com/gifs/80s-synthwave-aesthetic-cOzK12kNVHoiOLYX6P                                   | TBD                |
+| ![cityatnight](gifs/cityatnight.gif)               | https://giphy.com/gifs/art-pixel-city-ZH82yukB6v8xq                                   | TBD                |
+| ![light](gifs/light.gif)               | https://giphy.com/gifs/art-pixel-8bit-eIlqKuciKZR1g14e6E                                   | TBD                |
+| ![lightroad](gifs/lightroad.gif)               | https://giphy.com/gifs/pixel-sky-pixelart-2wh8ugh52dGSJYrA26                                   | TBD                |
+| ![airplane](gifs/airplane.gif)               | https://giphy.com/gifs/pixel-sky-pixelart-5hktssZHqPSbiQt4Du                                   | TBD                |
+| ![energy](gifs/energy.gif)               | https://giphy.com/gifs/g1ft3d-artists-on-tumblr-2012-g1ft3d-122MzRgO2gjjW0                                   | TBD                |

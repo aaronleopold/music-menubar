@@ -18,6 +18,11 @@ import plant from "./gifs/plant.gif";
 import rainyafternoon from "./gifs/rainyafternoon.gif";
 import sunrise from "./gifs/sunrise.gif";
 import sunroad from "./gifs/sunroad.gif";
+import cityatnight from "./gifs/cityatnight.gif";
+import light from "./gifs/light.gif";
+import lightroad from "./gifs/lightroad.gif";
+import airplane from "./gifs/airplane.gif";
+import energy from "./gifs/energy.gif";
 
 export type Gif = {
   gif: any;
@@ -107,5 +112,25 @@ export const gifs: Gif[] = [
   {
     gif: sunroad,
     source: "https://giphy.com/gifs/80s-synthwave-aesthetic-cOzK12kNVHoiOLYX6P",
+  },
+  {
+    gif: cityatnight,
+    source: "https://giphy.com/gifs/art-pixel-city-ZH82yukB6v8xq",
+  },
+  {
+    gif: light,
+    source: "https://giphy.com/gifs/art-pixel-8bit-eIlqKuciKZR1g14e6E",
+  },
+  {
+    gif: lightroad,
+    source: "https://giphy.com/gifs/pixel-sky-pixelart-2wh8ugh52dGSJYrA26",
+  },
+  {
+    gif: airplane,
+    source: "https://giphy.com/gifs/pixel-sky-pixelart-5hktssZHqPSbiQt4Du",
+  },
+  {
+    gif: energy,
+    source: "https://giphy.com/gifs/g1ft3d-artists-on-tumblr-2012-g1ft3d-122MzRgO2gjjW0",
   },
 ];
