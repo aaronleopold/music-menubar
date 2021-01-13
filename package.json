@@ -18,7 +18,7 @@
     "@tailwindcss/typography": "^0.3.1",
     "@types/lodash": "^4.14.159",
     "autoprefixer": "9",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "clsx": "^1.1.1",
     "cssnano": "^4.1.10",
     "electron-is": "^3.0.0",
