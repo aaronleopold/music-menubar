@@ -1,38 +1,80 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+const defaultTheme = require("tailwindcss/defaultTheme");
+const uiColors = require("@tailwindcss/ui/colors");
 
 module.exports = {
+  darkMode: "class",
+  variants: {
+    extend: {
+      margin: ["first"],
+      padding: ["first"],
+    },
+  },
   theme: {
     extend: {
       colors: {
-        blackish: '#1b1c20',
-        'dark-primary': '#2d3037',
-        'dark-accent': '#27292f',
+        ...uiColors,
+        blackish: "#1b1c20",
+        "dark-primary": "#2d3037",
+        "dark-accent": "#27292f",
       },
-      screens: {
-        // light: { raw: '(prefers-color-scheme: light)' },
-        // dark: { raw: '(prefers-color-scheme: dark)' },
-      },
+
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+      },
+      minHeight: {
+        0: 0,
+        1: "0.25rem",
+        2: "0.5rem",
+        3: "0.75rem",
+        4: "1rem",
+        5: "1.25rem",
+        6: "1.5rem",
+        8: "2rem",
+        10: "2.5rem",
+        12: "3rem",
+        16: "4rem",
+        20: "5rem",
+        24: "6rem",
+        32: "8rem",
+        40: "10rem",
+        48: "12rem",
+        56: "14rem",
+        64: "16rem",
+        68: "17rem",
+        72: "18rem",
+        76: "19rem",
+        80: "20rem",
+        84: "21rem",
+        88: "22rem",
+        92: "23rem",
+        "5/6": "83vh",
+      },
+      minWidth: {
+        0: 0,
+        1: "0.25rem",
+        2: "0.5rem",
+        3: "0.75rem",
+        4: "1rem",
+        5: "1.25rem",
+        6: "1.5rem",
+        8: "2rem",
+        10: "2.5rem",
+        12: "3rem",
+        16: "4rem",
+        20: "5rem",
+        24: "6rem",
+        32: "8rem",
+        40: "10rem",
+        48: "12rem",
+        56: "14rem",
+        64: "16rem",
       },
     },
   },
   plugins: [
-    require('@tailwindcss/ui'),
-
-    // function ({ addBase, config }) {
-    //   addBase({
-    //     body: {
-    //       color: config('theme.colors.black'),
-    //       backgroundColor: config('theme.colors.white'),
-    //     },
-    //     '@screen dark': {
-    //       body: {
-    //         color: config('theme.colors.white'),
-    //         backgroundColor: config('theme.colors.black'),
-    //       },
-    //     },
-    //   });
-    // },
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/aspect-ratio"),
   ],
+  purge: ["./src/**/*.{js,jsx,ts,tsx}"],
 };
