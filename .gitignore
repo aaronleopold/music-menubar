@@ -1,0 +1,12 @@
+.env
+node_modules
+dist
+.vscode
+
+yarn-error.log
+
+config.ts
+
+.DS_STORE
+
+package-lock.json

@@ -1,0 +1,19 @@
+{
+  "appId": "music.menubar.react",
+  "productName": "music-menubar",
+  "compression": "store",
+  "mac": {
+    "identity": null
+  },
+  "linux": {
+    "target": "AppImage"
+  },
+  "publish": [
+    {
+      "provider": "github",
+      "owner": "aaronleopold",
+      "repo": "music-menubar",
+      "releaseType": "release"
+    }
+  ]
+}

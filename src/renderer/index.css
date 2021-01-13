@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.app-header {
+  height: 64px;
+}
+
+.header-offset {
+  top: 64px;
+}
+
+.full-minus-header {
+  height: calc(100vh - 64px);
+}
+
+.spotify-body {
+  /* padding-bottom: 6rem; */
+
+  height: calc(100vh - 64px - 6rem);
+}
+
+.progress-div {
+  background-color: rgb(233, 233, 233);
+  border-radius: 0.5rem;
+}
+
+.progress {
+  background-color: rgb(62, 122, 235);
+  height: 10px;
+  border-radius: 1rem;
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-md {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 15px 30px rgba(0, 0, 0, 0.11), 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.text-shadow-none {
+  text-shadow: none;
+}
+
+.bg-dark {
+  background-color: rgb(45, 48, 55);
+}
+
+.bg-darker {
+  background-color: rgb(39, 41, 47);
+}
+
+.border-blackish {
+  --border-opacity: 1;
+  border-color: rgb(27, 28, 32);
+  border-color: rgba(0, 0, 0, var(--border-opacity));
+}
+
+.hoverable:hover {
+  transform: scale(1.1);
+}
+
+.hoverable-1:hover {
+  transform: scale(1.01);
+}
