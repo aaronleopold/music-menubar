@@ -7,69 +7,39 @@ import clsx from 'clsx';
 
 // TODO: parse the api key forms into separate small components to be reused in
 // each options own settings screen (i.e. spotify settings vs YT settings)
-
+// FIXME:
 export default observer(() => {
   const store = useMst();
 
-  const { spotify, youtube, theme, local } = store.player;
+  const { youtube, local } = store.player;
+  const theme = localStorage.getItem('theme');
 
   function toggleTheme() {
+    const theme = localStorage.getItem('theme');
+
     if (!theme || theme === 'light') {
-      store.player.setTheme('dark');
+      // store.player.setTheme('dark');
+      document.querySelector('html')?.classList.add('dark');
+      localStorage.theme = 'dark';
     } else {
-      store.player.setTheme('light');
+      // store.player.setTheme('light');
+      document.querySelector('html')?.classList.remove('dark');
+      localStorage.theme = 'light';
     }
   }
 
   return (
-    <div className={clsx(theme && theme === 'dark' && 'bg-dark', 'h-screen')}>
-      <Header title="Settings" dark={theme === 'dark'} />
+    <div className="dark:bg-dark h-screen">
+      <Header title="Settings" dark={false} />
       TODO: prompt user as to why they may need any of these, so they are
       informed as to what they are and if they need them
       <div className="p-6 flex flex-col space-y-5">
-        <Toggle
+        {/* <Toggle
           enabled={theme === 'dark'}
           onToggle={toggleTheme}
           title="Dark Theme"
           dark={theme === 'dark'}
-        />
-        <div>
-          <label
-            className={clsx(
-              theme === 'dark' ? 'text-white' : 'text-gray-700',
-              'block text-sm leading-5 font-medium '
-            )}
-          >
-            Spotify Client ID
-          </label>
-
-          <input
-            className="form-input w-full mt-1 rounded-md border border-gray-300 px-4 py-2 text-sm leading-5"
-            type="password"
-            placeholder="Enter your client ID here"
-            value={spotify.clientId}
-            onChange={(e) => spotify.setClientId(e.target.value)}
-          />
-        </div>
-
-        <div>
-          <label
-            className={clsx(
-              theme === 'dark' ? 'text-white' : 'text-gray-700',
-              'block text-sm leading-5 font-medium '
-            )}
-          >
-            Spotify Client Secret
-          </label>
-
-          <input
-            className="form-input w-full mt-1 rounded-md border border-gray-300 px-4 py-2 text-sm leading-5"
-            type="password"
-            placeholder="Enter your client secret here"
-            value={spotify.clientSecret}
-            onChange={(e) => spotify.setClientSecret(e.target.value)}
-          />
-        </div>
+        /> */}
 
         <div>
           <label
@@ -89,6 +59,7 @@ export default observer(() => {
             onChange={(e) => youtube.setApiKey(e.target.value)}
           />
         </div>
+
         <div>
           <label
             className={clsx(

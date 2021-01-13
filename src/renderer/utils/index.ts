@@ -1,5 +1,5 @@
-import { gifs } from "../assets/gifs";
-import { parse, ParsedUrlQuery } from "querystring";
+import { gifs } from '../assets/gifs';
+import { parse, ParsedUrlQuery } from 'querystring';
 
 // TODO: change to take in current bg, get random DIFFERENT bg
 
@@ -22,12 +22,12 @@ export function getRandomGif(): { gif: any; source: string } {
  */
 export function parseUrl(url: string): ParsedUrlQuery | null {
   //No string provided
-  if (url === "" || url === undefined) return null;
+  if (url === '' || url === undefined) return null;
 
   //No query string detected
-  if (!url.includes("?")) return null;
+  if (!url.includes('?')) return null;
 
-  const queryString = url.split("?")[1];
+  const queryString = url.split('?')[1];
   const params = parse(queryString);
 
   return params;

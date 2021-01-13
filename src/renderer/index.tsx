@@ -7,11 +7,12 @@ import { Provider } from './models';
 import Settings from './pages/Settings';
 import ToastManager from './components/ToastManager';
 import YouTube from './pages/YouTube';
-import Spotify from './pages/Spotify';
-import SoundCloud from './pages/SoundCloud';
 import LocalLibrary from './pages/LocalLibrary';
+import { initTheme } from './utils/initTheme';
 
 require('dotenv').config();
+
+initTheme();
 
 function App() {
   return (
@@ -21,8 +22,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/youtube/*" element={<YouTube />} />
-            <Route path="/spotify/*" element={<Spotify />} />
-            <Route path="/soundcloud/*" element={<SoundCloud />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/library/*" element={<LocalLibrary />} />
           </Routes>
