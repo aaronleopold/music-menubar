@@ -3,16 +3,18 @@ import React from 'react';
 import { render } from 'react-dom';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import { Provider } from './models';
 import Settings from './pages/Settings';
 import ToastManager from './components/ToastManager';
 import YouTube from './pages/YouTube';
 import LocalLibrary from './pages/LocalLibrary';
 import { initTheme } from './utils/initTheme';
+import { Provider } from '../models';
 
 require('dotenv').config();
 
 initTheme();
+
+// TODO: code split!!
 
 function App() {
   return (

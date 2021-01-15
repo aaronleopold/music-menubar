@@ -1,10 +1,6 @@
 import React from 'react';
-import { observer } from 'mobx-react-lite';
-import { useMst } from '../models';
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
-import clsx from 'clsx';
-
 import ytGif from '../assets/homepage/mastermind.gif';
 import ytLogoGif from '../assets/homepage/ytlogo.gif';
 import soundCloudGif from '../assets/homepage/nightshift.gif';
@@ -32,25 +28,15 @@ function PageLink({
   );
 }
 
-export default observer(() => {
-  const store = useMst();
-
-  const { theme } = store.player;
-
+export default function () {
   return (
-    <div className={clsx(theme === 'dark' && 'bg-dark', 'min-h-screen')}>
+    <div className="dark:bg-dark-900 min-h-screen">
       <Header
-        dark={theme === 'dark'}
         title="Welcome"
         action={
           <Link
             to="settings"
-            className={clsx(
-              theme === 'dark'
-                ? 'text-white hover:bg-gray-700 '
-                : 'hover:bg-gray-200 ',
-              'rounded-full p-2 focus:outline-none transition-colors duration-150'
-            )}
+            className="dark:text-white dark:hover:bg-gray-700 rounded-full hover:bg-gray-200 p-2 focus:outline-none transition-colors duration-150"
           >
             <svg
               viewBox="0 0 20 20"
@@ -80,4 +66,4 @@ export default observer(() => {
       </div>
     </div>
   );
-});
+}

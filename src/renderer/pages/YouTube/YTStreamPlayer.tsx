@@ -1,30 +1,28 @@
-import React, { useEffect, useRef, useState } from "react";
-import { observer } from "mobx-react-lite";
-import { useMst } from "../../models";
-import Header from "../../components/Header";
-import { useParams } from "react-router-dom";
-import PlayerControls from "../../components/PlayerControls";
-import { getRandomGif } from "../../utils";
-// import "youtube";
-import clsx from "clsx";
-import Loader from "react-loader-spinner";
-import { Gif } from "../../assets/gifs";
+import React, { useEffect, useRef, useState } from 'react';
+import { observer } from 'mobx-react-lite';
+import Header from '../../components/Header';
+import { useParams } from 'react-router-dom';
+import PlayerControls from '../../components/PlayerControls';
+import { getRandomGif } from '../../utils';
+import Loader from 'react-loader-spinner';
+import { Gif } from '../../assets/gifs';
+import { useMst } from '../../../models';
+import PageLayout from '../../components/PageLayout';
 
 // const baseURL = "https://www.googleapis.com/youtube/v3/playlistItems";
 
 // hard coding here becuase import 'youtube' wasn't actually loading script
-if (typeof YT == "undefined" || typeof YT.Player == "undefined") {
-  var tag = document.createElement("script");
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName("script")[0];
+if (typeof YT == 'undefined' || typeof YT.Player == 'undefined') {
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  var firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag?.parentNode?.insertBefore(tag, firstScriptTag);
 }
 
 export default observer(() => {
   const store = useMst();
 
-  const { youtube, theme } = store.player;
-  const dark = theme === "dark";
+  const { youtube } = store.player;
 
   const { index } = useParams();
 
@@ -79,13 +77,13 @@ export default observer(() => {
     if (!player) {
       createPlayer(
         // @ts-ignore
-        new YT.Player("player", {
-          height: "300",
-          width: "300",
+        new YT.Player('player', {
+          height: '300',
+          width: '300',
           videoId: stream.videoId,
           playerVars: {
-            controls: "0",
-            autoplay: "1",
+            controls: '0',
+            autoplay: '1',
           },
           events: {
             onReady: onPlayerReady,
@@ -99,10 +97,8 @@ export default observer(() => {
   });
 
   return (
-    <div
-      className={clsx(dark && "bg-dark", "relative h-screen overflow-hidden")}
-    >
-      <Header back="/youtube" title={stream.name} dark clear />
+    <PageLayout className="relative overflow-hidden">
+      <Header back="/youtube" title={stream.name} clear />
 
       <div id="player" className="hidden" />
 
@@ -144,6 +140,6 @@ export default observer(() => {
           }}
         />
       )}
-    </div>
+    </PageLayout>
   );
 });

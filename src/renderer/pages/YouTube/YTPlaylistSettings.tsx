@@ -1,37 +1,30 @@
-import React from "react";
-import { observer } from "mobx-react-lite";
-import Header from "../../components/Header";
-import { useMst } from "../../models";
-import { useNavigate, useParams } from "react-router-dom";
-import clsx from "clsx";
+import React from 'react';
+import { observer } from 'mobx-react-lite';
+import Header from '../../components/Header';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useMst } from '../../../models';
+import PageLayout from '../../components/PageLayout';
+import Input from '../../components/ui/Input';
 
 export default observer(() => {
   const store = useMst();
   const index = useParams().index;
   const navigate = useNavigate();
 
-  const dark = store.player.theme === "dark";
-
   const playlist = store.player.youtube.playlists[parseInt(index, 10)];
 
   return (
-    <div className={clsx(dark && "bg-dark", "h-screen")}>
+    <PageLayout>
       <Header
         back="/youtube"
         title={playlist.name}
-        dark={dark}
         action={
           <button
             onClick={() => {
               store.player.youtube.deletePlaylist(playlist);
-              navigate("/youtube");
+              navigate('/youtube');
             }}
-            className={clsx(
-              dark
-                ? "border-red-600 hover:bg-red-600 text-red-600 hover:text-white"
-                : "border-red-600 bg-white hover:bg-red-600 text-red-600  hover:text-white",
-              "flex justify-between space-x-2 rounded-full border-2 transition-colors focus:outline-none duration-300 text-lg px-2 py-1 items-center font-semibold"
-            )}
+            className="border-red-600 bg-white hover:bg-red-600 text-red-600  hover:text-white dark:bg-transparent flex justify-between space-x-2 rounded-full border-2 transition-colors focus:outline-none duration-300 text-lg px-2 py-1 items-center font-semibold"
           >
             <svg
               className="w-4 h-4"
@@ -53,42 +46,20 @@ export default observer(() => {
         }
       />
       <div className="p-6 flex flex-col space-y-5">
-        <div>
-          <label
-            className={clsx(
-              dark ? "text-white" : "text-gray-700",
-              "block text-sm leading-5 font-medium "
-            )}
-          >
-            Playlist Name
-          </label>
+        <Input
+          label="Playlist Name"
+          placeholder="Enter your client ID here"
+          value={playlist.name}
+          onChange={(e) => playlist.changeName(e.target.value)}
+        />
 
-          <input
-            className="form-input w-full mt-1 rounded-md border border-gray-300 px-4 py-2 text-sm leading-5"
-            placeholder="Enter your client ID here"
-            value={playlist.name}
-            onChange={(e) => playlist.changeName(e.target.value)}
-          />
-        </div>
-
-        <div>
-          <label
-            className={clsx(
-              dark ? "text-white" : "text-gray-700",
-              "block text-sm leading-5 font-medium "
-            )}
-          >
-            Playlist ID
-          </label>
-
-          <input
-            className="form-input w-full mt-1 rounded-md border border-gray-300 px-4 py-2 text-sm leading-5"
-            placeholder="Enter your client ID here"
-            value={playlist.playlistId}
-            onChange={(e) => playlist.setPlaylistId(e.target.value)}
-          />
-        </div>
+        <Input
+          label="Playlist ID"
+          placeholder="Enter your client ID here"
+          value={playlist.playlistId}
+          onChange={(e) => playlist.setPlaylistId(e.target.value)}
+        />
       </div>
-    </div>
+    </PageLayout>
   );
 });

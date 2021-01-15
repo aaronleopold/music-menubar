@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Modal, { ModalContent, ModalFooter } from '../ui/Modal';
 import { observer } from 'mobx-react-lite';
-import { useMst } from '../../models';
 import { parseUrl } from '../../utils';
 import Divider from '../ui/Divider';
+import { useMst } from '../../../models';
 
 type ModalProps = {
   open: boolean;

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
-import { useMst } from '../models';
+import { useMst } from '../../models';
 import { Bread } from '../types';
 
 type ToastProps = { onDelete(): void } & Bread;

@@ -8,12 +8,12 @@ import {
   Droppable,
   DroppableProvided,
 } from 'react-beautiful-dnd';
-import { useMst } from '../../models';
-import { YTStream } from '../../models/YouTube';
 import CreateStreamModal from './CreateStreamModal';
 import useToggle from '../utils/useToggle';
 import ListHeader from './ListHeader';
 import Stream from './ListItem';
+import { YTStream } from '../../../models/YouTube';
+import { useMst } from '../../../models';
 
 type DroppableProps = {
   streams: Instance<typeof YTStream>[];

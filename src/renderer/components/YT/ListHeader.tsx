@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import { useMst } from '../../models';
+import { useMst } from '../../../models';
 
 type Props = {
   title: string;

@@ -1,31 +1,21 @@
-import React from "react";
-import { observer } from "mobx-react-lite";
-import Header from "../../components/Header";
-import clsx from "clsx";
-import CopyToClipboard from "react-copy-to-clipboard";
-import { useMst } from "../../models";
+import React from 'react';
+import { observer } from 'mobx-react-lite';
+import Header from '../../components/Header';
+import CopyToClipboard from 'react-copy-to-clipboard';
+import { useMst } from '../../../models';
+import PageLayout from '../../components/PageLayout';
 
 type Props = {
-  dark: boolean;
   name: string;
   link: string;
   onDelete(): void;
   onCopy(): void;
 };
-function Favorite({ dark, name, link, onDelete, onCopy }: Props) {
+function Favorite({ name, link, onDelete, onCopy }: Props) {
   return (
-    <li
-      className={clsx(
-        dark ? "bg-dark hover:bg-gray-500" : "hover:bg-gray-100 ",
-        "p-6 flex transition-colors duration-150 cursor-pointer"
-      )}
-    >
+    <li className="dark:bg-dark-700 dark:hover:bg-gray-500 hover:bg-gray-100 p-6 flex transition-colors duration-150 cursor-pointer">
       <div className="flex-1">
-        <div
-          className={clsx(dark ? "text-white" : "text-gray-900", "font-bold")}
-        >
-          {name}
-        </div>
+        <div className="dark:text-white text-gray-900 font-bold">{name}</div>
       </div>
       <div className="flex items-center">
         <button
@@ -49,7 +39,7 @@ function Favorite({ dark, name, link, onDelete, onCopy }: Props) {
         </button>
         <CopyToClipboard text={link} onCopy={onCopy}>
           <svg
-            className={clsx(dark && "text-white", "w-6 ml-6")}
+            className="dark:text-white w-6 ml-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -71,18 +61,14 @@ function Favorite({ dark, name, link, onDelete, onCopy }: Props) {
 export default observer(() => {
   const store = useMst();
 
-  const dark = store.player.theme === "dark";
-
   const { youtube } = store.player;
   const { favorites } = youtube;
 
   function makeToast() {
     const toast = store.player.addToast({
-      status: "success",
-      title: "Copied link!",
+      status: 'success',
+      title: 'Copied link!',
     });
-
-    console.log(toast);
 
     setTimeout(() => {
       store.player.removeToast(toast);
@@ -90,14 +76,9 @@ export default observer(() => {
   }
 
   return (
-    <div className="relative h-screen">
-      <Header title="Favorites" dark={dark} action />
-      <div
-        className={clsx(
-          dark && "bg-dark text-white",
-          "full-minus-header overflow-scroll"
-        )}
-      >
+    <PageLayout>
+      <Header title="Favorites" action />
+      <div className="dark:text-white full-minus-header overflow-scroll">
         {favorites.length === 0 && (
           <div className="py-4 text-center">No favorites added</div>
         )}
@@ -108,13 +89,12 @@ export default observer(() => {
               <Favorite
                 key={favorite.link}
                 {...favorite}
-                dark={dark}
                 onDelete={() => youtube.deleteFavorite(favorite)}
                 onCopy={makeToast}
               />
             );
           })}
       </div>
-    </div>
+    </PageLayout>
   );
 });
