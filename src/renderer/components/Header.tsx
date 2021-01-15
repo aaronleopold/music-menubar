@@ -25,7 +25,7 @@ export default function Header({ back, title, action, clear }: Props) {
     <div
       className={clsx(
         clear && 'bg-transparent',
-        !clear && 'dark:bg-dark-800 bg-white border-blackish',
+        !clear && 'dark:bg-dark-800 bg-white dark:border-blackish',
         'px-4 app-header overflow-hidden grid grid-cols-6 border-b sticky top-0 z-20'
       )}
     >

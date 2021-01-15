@@ -63,6 +63,7 @@ const DroppableList = observer(
   )
 );
 
+// TODO: make class toggles
 export default observer(() => {
   const store = useMst();
 
